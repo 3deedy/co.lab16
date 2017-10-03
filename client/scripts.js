@@ -11,10 +11,10 @@ $chirpButton.prop('disabled', isEmpty);
 $chirpButton.click(postChirp);
 
 function postChirp() {
-var chirp = {
-message: $chirpField.val(),
-userid: 2, //$userSelector.val(),
-// username: 'DeDe'
+    var chirp = {
+    message: $chirpField.val(),
+//userid: 2, //$userSelector.val(),
+//username: 'Alice'
 };
 
 $.ajax({
@@ -32,24 +32,25 @@ $.ajax({
 }
 
 function addChirpDiv(chirp) {
-var $chirpDiv = $("<div class='chirp'></div>");
-var $message = $('<p></p>');
-var $username = $('<h4></h4>');
-var $timestamp = $('<h5></h5>');
-var $delbutton = $('<button class="delete-button fancy-button red">Delete</button>');
-// $delButton.click(function() {
-// deleteChirp(chirps[0].id);
-// });
-$message.text(chirp.message);
-// $name.text(chirp.username);
-$timestamp.text(new Date(chirp.timestamp).tolocalstring());
+    var $chirpDiv = $("<div class='chirp'></div>");
+    var $message = $('<p></p>');
+    var $username = $('<h5></h5>');
+    var $timestamp = $('<p></p>');
+    var $delButton = $("<button class='fancy-button'>Delete</button>");
+    $delButton.click(function() {
+        deleteChirp(chirp.id);
+    });
+    $message.text(chirp.message);
+    $username.text(chirp.username);
+    $timestamp.text(new Date(chirp.time).tolocalstring());
 
-$message.appendTo($chirpDiv)
-$name.appendTo($chirpDiv)
-$timestamp.appendTo($chirpDiv)
-$delButton.appendTo($chirpDiv)
 
-$chirpDiv.appendto($chirpList)
+    $message.appendTo($chirpDiv)
+    $username.appendTo($chirpDiv)
+    $timestamp.appendTo($chirpDiv)
+    $delButton.appendTo($chirpDiv)
+
+    $chirpDiv.appendto($chirpList)
 }
 
 function getChirps(){
@@ -61,15 +62,15 @@ function getChirps(){
         for (var i = 0; i < chirps.length; i++) {
             var $chirpDiv = $('<div class="chirp"></div>');
             var $message = $('<h5></h5>');
-            var $username = $('<h4></h4>');
+            var $username = $('<p></p>');
             var $timestamp = $('<p></p>');
             
             $message.text(chirps[i].message);
-            // $username.text(chirps[i].username);
-            $timestamp.text(new Date(chirps[i].timestamp).toLocaleString());
+            $username.text(chirps[i].username);
+            $timestamp.text(new Date(chirps[i].time).toLocaleString());
 
             $message.appendTo($chirpDiv);
-            // $username.appendTo($chirpDiv);
+            $username.appendTo($chirpDiv);
             $timestamp.appendTo($chirpDiv);
 
             $chirpDiv.appendTo($chirpList);

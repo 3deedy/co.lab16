@@ -4,4 +4,15 @@ body {
 
 .container {
 	background: RGBA(211, 211, 211, 0.8);
+	margin-top: 15%;
+	border-radius: 7px;
+}
+
+.chirp {
+	border-top: 2px dotted white;
+}
+
+.jumbotron {
+    position: fixed;
+    width: 100%;
 }

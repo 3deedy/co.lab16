@@ -81,16 +81,16 @@ res.sendStatus(500);
 });
 
 // APP.GET /api/users, function req res
-app.route('/api/users').get(function(req, res) {
-rows('GetUsers')
-.then(function(users) {
-res.send(users);
-})
-.catch(function(err) {
-console.log(err);
-res.sendstatus(500);
-});
-});
+// app.get('/api/users', function(req, res) {
+// rows('GetUsers')
+// .then(function(users) {
+// res.send(users);
+// })
+// .catch(function(err) {
+// console.log(err);
+// res.sendstatus(500);
+// });
+// });
 
 
 
